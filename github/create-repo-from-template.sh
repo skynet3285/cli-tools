@@ -8,14 +8,11 @@ then
     exit 1
 fi
 
-echo "Enter New Repository Name (REPO or OWNER/REPO):"
-read NEW_REPO_NAME
-echo "Enter Using Template Repository (OWNER/REPO):"
-read TEMPLATE_REPO
-echo "Do you want the repository to be private? (yes/no):"
-read IS_PRIVATE
-echo "Do you want to clone the repository after creation? (yes/no):"
-read IS_CLONE
+read -p "Enter New Repository Name (REPO or OWNER/REPO): " NEW_REPO_NAME
+read -p "Enter Using Template Repository (OWNER/REPO): " TEMPLATE_REPO
+read -p "Do you want the repository to be private? (yes/no): " IS_PRIVATE
+read -p "Do you want to clone the repository after creation? (yes/no): " IS_CLONE
+
 
 PRIVACY_FLAG=""
 if [[ "$IS_PRIVATE" == "yes" ]]; then
