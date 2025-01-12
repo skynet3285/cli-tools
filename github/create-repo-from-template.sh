@@ -23,7 +23,12 @@ fi
 
 CLONE_FLAG=""
 if [[ "$IS_CLONE" == "yes" ]]; then
-  CLONE_FLAG="--clone"
+  REPO_DIR=$(basename "$NEW_REPO_NAME")
+  if [[ -d "$REPO_DIR" ]]; then
+    echo "Directory '$REPO_DIR' already exists. Clone option will be disabled."
+  else
+    CLONE_FLAG="--clone"
+  fi
 fi
 
 echo "Creating repository..."
